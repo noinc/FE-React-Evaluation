@@ -4,14 +4,16 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import {fakeInterests, fakeSkills} from "./dummy-data";
+// import logo from './logo.svg';
+import './App.css';
+import { fakeInterests, fakeSkills } from './dummy-data';
 
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 
 function App() {
-    console.log('test return', fakeInterests);
-    console.log('test return', fakeSkills);
+  console.log('test return', fakeInterests);
+  console.log('test return', fakeSkills);
   return (
     <div className="App">
       <p>This is App.js</p>
