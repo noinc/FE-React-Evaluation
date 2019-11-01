@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
 import {
-    Route,
-    Switch
+  Route,
+  Switch,
 } from 'react-router-dom';
 // import logo from './logo.svg';
-import './App.css';
 import { fakeInterests, fakeSkills } from './dummy-data';
 
-import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   console.log('test return', fakeInterests);
@@ -17,16 +16,16 @@ function App() {
   return (
     <div className="App">
       <p>This is App.js</p>
-        <Switch>
+      <Switch>
 
-            <Route path="/login">
-                <LoginPage/>
-            </Route>
-            <Route path="/">
-                <HomePage/>
-            </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
+        </Route>
 
-        </Switch>
+      </Switch>
     </div>
   );
 }
