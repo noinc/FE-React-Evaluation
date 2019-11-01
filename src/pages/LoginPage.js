@@ -1,16 +1,26 @@
 import React from 'react';
 import {
-    Link,
-} from "react-router-dom";
+  Link,
+} from 'react-router-dom';
 
-export class LoginPage extends React.Component {
+class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: false,
+    };
+  }
 
-    render() {
-        return <div>
-            Login Page
-            <button>
-                <Link to="/">Login</Link>
-            </button>
-        </div>
-    }
+  render() {
+    return (
+      <div>
+        Login Page
+        <button type="button">
+          <Link to="/">Login</Link>
+        </button>
+      </div>
+    );
+  }
 }
+
+export default LoginPage;
