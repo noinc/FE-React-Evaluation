@@ -14,7 +14,7 @@ export default function Login() {
             </div>
             <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
                 <p className="loginLabel">Login to Our Magic Portal</p>
-                <input type="text" name="username" placeholder="Username" ref={register({
+                <input type="text" name="username" placeholder="Username" autoComplete="username" ref={register({
                     required: "Required",
                     minLength: {
                         value: 3,
@@ -31,7 +31,7 @@ export default function Login() {
                 })}/>
                 {errors.username && errors.username.message}
 
-                <input type="password" name="password" placeholder="Password" ref={register({
+                <input type="password" name="password" placeholder="Password" autoComplete="current-password" ref={register({
                     required: "Required",
                     minLength: {
                         value: 12,
