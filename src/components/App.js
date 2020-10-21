@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
     Route,
     Switch
 } from 'react-router-dom';
-import {fakeInterests, fakeSkills} from "./dummy-data";
+import {fakeInterests, fakeSkills} from "../dummy-data";
+import Login from './Login';
 
 function App() {
     console.log('test return', fakeInterests);
@@ -14,7 +14,9 @@ function App() {
     <div className="App">
       <p>This is App.js</p>
         <Switch>
-
+          <Route path="/">
+            <Login />
+          </Route>
         </Switch>
     </div>
   );
