@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NoInc.Models;
 using NoInc.Repositories.Contract;
+using NoInc.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,13 @@ namespace NoInc.Controllers
     /// <summary>
     /// Base controller class for entities with a primary Id field. 
     /// This class takes care of get, post, put{id}, and delete{id} requests,
-    /// However, for technical reasons concrete classes must implement their own get{id}
+    /// However, for technical reasons, concrete classes must implement their own get{id}
     /// method, providing the route name with the constructor, although
     /// they can delegate the method implementation to the GetById method
     /// </summary>
-    /// <typeparam name="Entity"></typeparam>
+    [Route("api/[controller]/[action]")]
+    [ApiController]
+    [Authorize]
     public abstract class EntitiesControllerBase<Entity> : ControllerBase
         where Entity : EntityBase
     {
@@ -28,13 +32,12 @@ namespace NoInc.Controllers
         protected readonly IRepository<Entity> _repo;
         private readonly string _httpGetRouteName;
 
-        [HttpGet]
+        [HttpGet]        
         public virtual ActionResult<IEnumerable<Entity>> GetAll()
         {
             var entitites = _repo.GetAll();
             return Ok(entitites);
         }
-        
 
         protected virtual ActionResult<Entity> GetById(long id)
         {

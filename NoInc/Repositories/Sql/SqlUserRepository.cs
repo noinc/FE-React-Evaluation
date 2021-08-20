@@ -19,6 +19,12 @@ namespace NoInc.Repositories.Sql
 
         }
 
+        public User GetByUsernameAndPassword(string username, string password)
+        {
+            return DbReadSet.Where(user => user.Username == username &&
+            user.Password == password).FirstOrDefault();
+        }
+
         public override DbSet<User> DbSet => _context.Users;
 
         public override IQueryable<User> DbReadSet => DbSet.Include(u => u.Interests).Include(u => u.Skills);

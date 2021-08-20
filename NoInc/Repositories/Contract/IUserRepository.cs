@@ -8,5 +8,6 @@ namespace NoInc.Repositories.Contract
 {
     public interface IUserRepository : IRepository<User>
     {
+        User GetByUsernameAndPassword(string username, string password);
     }
 }
